@@ -14,15 +14,10 @@
   <div class="container-custom">
     <div class="contact-grid">
 
-      <!-- Left: Info + Map -->
-      <div appScrollReveal srDirection="left">
+      <!-- Info + Map -->
+      <div appScrollReveal class="mx-auto max-w-3xl">
         <app-contact-info />
         <app-map-section />
-      </div>
-
-      <!-- Right: Form -->
-      <div appScrollReveal srDirection="right">
-        <app-contact-form (formSubmitted)="onFormSubmit($event)" />
       </div>
 
     </div>

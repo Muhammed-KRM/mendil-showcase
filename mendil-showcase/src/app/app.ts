@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component';
-import { CustomCursorComponent } from './shared/components/custom-cursor/custom-cursor.component';
 import { PageTransitionService } from './core/services/page-transition.service';
 import { MobileOptimizationService } from './core/services/mobile-optimization.service';
 import { AnalyticsService } from './core/services/analytics.service';
@@ -16,11 +15,9 @@ import { WebVitalsService } from './core/services/web-vitals.service';
     RouterOutlet,
     NavbarComponent,
     FooterComponent,
-    CookieBannerComponent,
-    CustomCursorComponent
+    CookieBannerComponent
   ],
   template: `
-    <app-custom-cursor />
     <a href="#main-content" class="skip-to-main">Ana içeriğe geç</a>
     <div class="scroll-progress-bar" aria-hidden="true"></div>
 
