@@ -1,4 +1,5 @@
-import { Directive, ElementRef, Output, EventEmitter, OnInit, inject } from '@angular/core';
+import { Directive, ElementRef, Output, EventEmitter, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appTouchGesture]',
@@ -15,7 +16,11 @@ export class TouchGestureDirective implements OnInit {
   private touchStartY = 0;
   private readonly minSwipeDistance = 50;
 
+  private platform = inject(PLATFORM_ID);
+
   ngOnInit(): void {
+    if (!isPlatformBrowser(this.platform)) return;
+
     const el = this.el.nativeElement;
     el.addEventListener('touchstart', (e: TouchEvent) => {
       this.touchStartX = e.changedTouches[0].screenX;

@@ -1,4 +1,5 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy, inject } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appLazyLoad]',
@@ -11,10 +12,12 @@ export class LazyLoadDirective implements OnInit, OnDestroy {
   private el = inject(ElementRef);
   private observer?: IntersectionObserver;
 
-  ngOnInit(): void {
-    const img = this.el.nativeElement as HTMLImageElement;
+  private platform = inject(PLATFORM_ID);
 
-    // Set placeholder immediately
+  ngOnInit(): void {
+    if (!isPlatformBrowser(this.platform)) return;
+
+    const img = this.el.nativeElement as HTMLImageElement;
     img.src = this.placeholder;
     img.classList.add('lazy-loading');
 
@@ -32,7 +35,6 @@ export class LazyLoadDirective implements OnInit, OnDestroy {
       );
       this.observer.observe(img);
     } else {
-      // Fallback for browsers without IntersectionObserver
       this.loadImage(img);
     }
   }

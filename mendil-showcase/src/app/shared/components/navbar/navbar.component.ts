@@ -1,6 +1,6 @@
-import { Component, OnInit, signal, HostListener, inject } from '@angular/core';
+import { Component, OnInit, signal, HostListener, inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { MobileMenuComponent } from '../mobile-menu/mobile-menu.component';
 
 interface NavItem {
@@ -26,13 +26,19 @@ export class NavbarComponent implements OnInit {
     { label: 'İletişim',    path: '/iletisim' },
   ];
 
+  private platform = inject(PLATFORM_ID);
+
   @HostListener('window:scroll')
   onScroll(): void {
-    this.isScrolled.set(window.scrollY > 50);
+    if (isPlatformBrowser(this.platform)) {
+      this.isScrolled.set(window.scrollY > 50);
+    }
   }
 
   ngOnInit(): void {
-    this.onScroll();
+    if (isPlatformBrowser(this.platform)) {
+      this.onScroll();
+    }
   }
 
   toggleMobileMenu(): void {
