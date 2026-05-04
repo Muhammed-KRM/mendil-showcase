@@ -3,7 +3,6 @@ import { SeoService } from '../../core/services/seo.service';
 import { StructuredDataService } from '../../core/services/structured-data.service';
 import { AnalyticsService } from '../../core/services/analytics.service';
 import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
-import { ContactFormComponent, ContactFormData } from './components/contact-form/contact-form.component';
 import { ContactInfoComponent } from './components/contact-info/contact-info.component';
 import { MapSectionComponent } from './components/map-section/map-section.component';
 
@@ -12,7 +11,6 @@ import { MapSectionComponent } from './components/map-section/map-section.compon
   standalone: true,
   imports: [
     ScrollRevealDirective,
-    ContactFormComponent,
     ContactInfoComponent,
     MapSectionComponent
   ],
@@ -34,8 +32,5 @@ export class ContactComponent implements OnInit {
     this.structuredData.addLocalBusinessSchema();
   }
 
-  onFormSubmit(data: ContactFormData): void {
-    this.analytics.trackContactForm();
-    console.log('Form submitted:', data);
-  }
+
 }
