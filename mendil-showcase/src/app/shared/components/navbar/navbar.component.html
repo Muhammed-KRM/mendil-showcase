@@ -1,0 +1,57 @@
+<header
+  class="navbar"
+  [class.scrolled]="isScrolled()"
+  role="banner">
+
+  <div class="navbar-inner container-custom">
+
+    <!-- Logo -->
+    <a routerLink="/" class="navbar-logo" aria-label="Mendil Markası - Ana Sayfa">
+      <div class="logo-icon" aria-hidden="true">🧻</div>
+      <span class="logo-text">Mendil<span class="logo-accent">Markası</span></span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="navbar-nav" aria-label="Ana navigasyon">
+      <ul role="list">
+        @for (item of navItems; track item.path) {
+          <li>
+            <a
+              [routerLink]="item.path"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+              class="nav-link">
+              {{ item.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- CTA Button -->
+    <div class="navbar-actions">
+      <a routerLink="/iletisim" class="btn-cta">
+        Bize Ulaşın
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button
+        class="hamburger"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+        aria-label="Menüyü aç/kapat"
+        aria-controls="mobile-menu">
+        <span class="hamburger-line" [class.open]="isMobileMenuOpen()"></span>
+        <span class="hamburger-line" [class.open]="isMobileMenuOpen()"></span>
+        <span class="hamburger-line" [class.open]="isMobileMenuOpen()"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<app-mobile-menu
+  id="mobile-menu"
+  [isOpen]="isMobileMenuOpen()"
+  [navItems]="navItems"
+  (closeMenu)="closeMobileMenu()" />

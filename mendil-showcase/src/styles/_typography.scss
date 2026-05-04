@@ -1,0 +1,67 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// TYPOGRAPHY STYLES
+// ============================================
+
+.text-display {
+  font-family: $font-display;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.text-heading {
+  font-family: $font-display;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.text-body {
+  font-family: $font-sans;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.text-caption {
+  font-family: $font-sans;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+// Gradient text
+.text-gradient {
+  @include text-gradient($color-primary, $color-secondary);
+}
+
+.text-gradient-blue {
+  @include text-gradient(#0EA5E9, #3B82F6);
+}
+
+.text-gradient-green {
+  @include text-gradient(#10B981, #34D399);
+}
+
+.text-gradient-warm {
+  @include text-gradient(#F59E0B, #EF4444);
+}
+
+// Section labels
+.section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-primary;
+  background: rgba(14, 165, 233, 0.1);
+  padding: 0.35rem 1rem;
+  border-radius: $radius-full;
+  margin-bottom: 1rem;
+}

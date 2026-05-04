@@ -1,0 +1,91 @@
+<div class="legal-page">
+  <div class="container-custom">
+    <div class="legal-header">
+      <span class="section-label">Yasal</span>
+      <h1>KVKK Veri Sahibi Başvuru Formu</h1>
+      <p class="update-date">6698 sayılı KVKK'nın 11. maddesi kapsamında başvuru formu</p>
+    </div>
+
+    <div class="kvkk-form-wrap">
+      <div class="info-box">
+        <p>Bu form aracılığıyla kişisel verilerinizle ilgili haklarınızı kullanabilirsiniz. Başvurunuz en geç 30 gün içinde yanıtlanacaktır.</p>
+      </div>
+
+      @if (showSuccess()) {
+        <div class="success-msg" role="alert">
+          ✅ Başvurunuz alındı! En geç 30 gün içinde size dönüş yapılacaktır.
+        </div>
+      }
+
+      <form (ngSubmit)="submitForm()" #kvkkForm="ngForm" novalidate>
+
+        <!-- Request Type -->
+        <div class="form-group">
+          <label for="requestType">Başvuru Türü <span>*</span></label>
+          <select id="requestType" [(ngModel)]="formData.requestType" name="requestType" required>
+            <option value="">Seçiniz</option>
+            @for (type of requestTypes; track type) {
+              <option [value]="type">{{ type }}</option>
+            }
+          </select>
+        </div>
+
+        <!-- Name -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">Ad <span>*</span></label>
+            <input id="firstName" type="text" [(ngModel)]="formData.firstName" name="firstName" required placeholder="Adınız">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Soyad <span>*</span></label>
+            <input id="lastName" type="text" [(ngModel)]="formData.lastName" name="lastName" required placeholder="Soyadınız">
+          </div>
+        </div>
+
+        <!-- TC No -->
+        <div class="form-group">
+          <label for="tcNo">T.C. Kimlik Numarası <span>*</span></label>
+          <input id="tcNo" type="text" [(ngModel)]="formData.tcNo" name="tcNo" required pattern="[0-9]{11}" maxlength="11" placeholder="11 haneli TC Kimlik No">
+        </div>
+
+        <!-- Contact -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="reqEmail">E-posta <span>*</span></label>
+            <input id="reqEmail" type="email" [(ngModel)]="formData.email" name="email" required placeholder="ornek@email.com">
+          </div>
+          <div class="form-group">
+            <label for="reqPhone">Telefon <span>*</span></label>
+            <input id="reqPhone" type="tel" [(ngModel)]="formData.phone" name="phone" required placeholder="0555 555 55 55">
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+          <label for="address">Adres <span>*</span></label>
+          <textarea id="address" [(ngModel)]="formData.address" name="address" required rows="2" placeholder="Açık adresiniz"></textarea>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="description">Açıklama <span>*</span></label>
+          <textarea id="description" [(ngModel)]="formData.description" name="description" required rows="4" placeholder="Başvurunuzla ilgili detaylı açıklama yapınız..."></textarea>
+        </div>
+
+        <!-- Consent -->
+        <div class="form-check">
+          <input type="checkbox" id="acceptTerms" [(ngModel)]="acceptTerms" name="acceptTerms" required>
+          <label for="acceptTerms">Başvurumun değerlendirilmesi için gerekli kişisel verilerimin işlenmesini kabul ediyorum. <span>*</span></label>
+        </div>
+
+        <button type="submit" class="btn-submit" [disabled]="!kvkkForm.valid || !acceptTerms || isSubmitting()">
+          @if (isSubmitting()) {
+            <span class="spinner" aria-hidden="true"></span> Gönderiliyor...
+          } @else {
+            Başvuruyu Gönder
+          }
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

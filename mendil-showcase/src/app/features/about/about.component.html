@@ -1,0 +1,92 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container-custom">
+    <span class="section-label">Biz Kimiz?</span>
+    <h1 class="page-title" appScrollReveal>Hakkımızda</h1>
+    <p class="page-desc" appScrollReveal [srDelay]="0.1">
+      2010'dan bu yana kalite ve güveni ön planda tutarak milyonlarca aileye hizmet veriyoruz.
+    </p>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="mv-section section-padding">
+  <div class="container-custom">
+    <div class="mv-grid">
+      <div class="mv-card mission" appScrollReveal srDirection="left">
+        <div class="mv-icon" aria-hidden="true">🎯</div>
+        <h2>Misyonumuz</h2>
+        <p>Doğa dostu, hijyenik ve kaliteli mendil ürünleri ile her yaştan insanın günlük yaşamını kolaylaştırmak ve sağlıklı bir yaşam tarzını desteklemek.</p>
+      </div>
+      <div class="mv-card vision" appScrollReveal srDirection="right">
+        <div class="mv-icon" aria-hidden="true">🔭</div>
+        <h2>Vizyonumuz</h2>
+        <p>Türkiye'nin en güvenilir ve çevre dostu mendil markası olarak, sürdürülebilir üretim anlayışıyla global pazarda söz sahibi olmak.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section section-padding bg-light" aria-labelledby="timeline-heading">
+  <div class="container-custom">
+    <div class="section-header" appScrollReveal>
+      <span class="section-label">Tarihçemiz</span>
+      <h2 id="timeline-heading" class="section-title">Yolculuğumuz</h2>
+    </div>
+    <app-company-history />
+  </div>
+</section>
+
+<!-- Values -->
+<section class="values-section section-padding" aria-labelledby="values-heading">
+  <div class="container-custom">
+    <div class="section-header" appScrollReveal>
+      <span class="section-label">Değerlerimiz</span>
+      <h2 id="values-heading" class="section-title">
+        Temel <span class="text-gradient-blue">Değerlerimiz</span>
+      </h2>
+    </div>
+    <app-values-section />
+  </div>
+</section>
+
+<!-- Production Process -->
+<section class="process-section section-padding bg-light" aria-labelledby="process-heading">
+  <div class="container-custom">
+    <div class="section-header" appScrollReveal>
+      <span class="section-label">Nasıl Üretiyoruz?</span>
+      <h2 id="process-heading" class="section-title">
+        Üretim <span class="text-gradient-blue">Sürecimiz</span>
+      </h2>
+    </div>
+    <app-production-process />
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="certs-section section-padding" aria-labelledby="certs-heading">
+  <div class="container-custom">
+    <div class="section-header" appScrollReveal>
+      <span class="section-label">Belgelerimiz</span>
+      <h2 id="certs-heading" class="section-title">Sertifikalarımız</h2>
+    </div>
+    <app-certifications />
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta section-padding" aria-labelledby="about-cta-heading">
+  <div class="container-custom">
+    <div class="cta-box" appScrollReveal>
+      <h2 id="about-cta-heading">Bizimle İletişime Geçin</h2>
+      <p>Ürünlerimiz veya kurumsal işbirliği hakkında bilgi almak için bize ulaşın.</p>
+      <a routerLink="/iletisim" class="btn-cta">
+        İletişime Geç
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,79 @@
+<section class="featured-products section-padding" aria-labelledby="featured-heading">
+  <div class="container-custom">
+
+    <!-- Header -->
+    <div class="section-header" appScrollReveal>
+      <span class="section-label">Ürünlerimiz</span>
+      <h2 id="featured-heading" class="section-title">
+        Öne Çıkan <span class="text-gradient-blue">Ürünler</span>
+      </h2>
+      <p class="section-desc">
+        Doğa dostu malzemelerden üretilen, dermatoljik olarak test edilmiş ürünlerimizi keşfedin.
+      </p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" role="list">
+      @for (product of products; track product.id; let i = $index) {
+        <article
+          class="product-card"
+          role="listitem"
+          appScrollReveal
+          [srDelay]="i * 0.1"
+          srDirection="up">
+
+          <!-- Image -->
+          <div class="product-image-wrap">
+            <div class="product-image-placeholder" aria-hidden="true">
+              <span class="product-emoji">
+                {{ product.category === 'wet' ? '💧' : product.category === 'paper' ? '📄' : product.category === 'box' ? '📦' : '👜' }}
+              </span>
+            </div>
+            <!-- Badges -->
+            <div class="product-badges" aria-label="Ürün etiketleri">
+              @for (badge of product.badges.slice(0, 2); track badge) {
+                <span class="badge">{{ badge }}</span>
+              }
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-desc">{{ product.shortDescription }}</p>
+
+            <!-- Features -->
+            <ul class="product-features" aria-label="Ürün özellikleri">
+              @for (feature of product.features.slice(0, 3); track feature) {
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  {{ feature }}
+                </li>
+              }
+            </ul>
+
+            <a routerLink="/urunler" class="product-link" [attr.aria-label]="product.name + ' detaylarını gör'">
+              Detayları Gör
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+
+    <!-- CTA -->
+    <div class="section-cta" appScrollReveal>
+      <a routerLink="/urunler" class="btn-all-products">
+        Tüm Ürünleri Gör
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

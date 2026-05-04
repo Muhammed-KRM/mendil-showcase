@@ -1,0 +1,30 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container-custom">
+    <span class="section-label">Bize Ulaşın</span>
+    <h1 class="page-title" appScrollReveal>İletişim</h1>
+    <p class="page-desc" appScrollReveal [srDelay]="0.1">
+      Sorularınız için bizimle iletişime geçin. En kısa sürede dönüş yapacağız.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section section-padding">
+  <div class="container-custom">
+    <div class="contact-grid">
+
+      <!-- Left: Info + Map -->
+      <div appScrollReveal srDirection="left">
+        <app-contact-info />
+        <app-map-section />
+      </div>
+
+      <!-- Right: Form -->
+      <div appScrollReveal srDirection="right">
+        <app-contact-form (formSubmitted)="onFormSubmit($event)" />
+      </div>
+
+    </div>
+  </div>
+</section>

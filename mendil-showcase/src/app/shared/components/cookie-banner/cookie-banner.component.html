@@ -1,0 +1,64 @@
+<!-- Cookie Banner -->
+@if (isVisible()) {
+  <div class="cookie-banner" role="dialog" aria-label="Çerez bildirimi" aria-live="polite">
+    <div class="cookie-inner">
+      <div class="cookie-content">
+        <p class="cookie-icon" aria-hidden="true">🍪</p>
+        <div>
+          <h3 class="cookie-title">Çerez Kullanımı</h3>
+          <p class="cookie-text">
+            Deneyiminizi geliştirmek için çerezler kullanıyoruz.
+            <a routerLink="/yasal/cerez-politikasi" class="cookie-link">Çerez Politikamızı</a> inceleyebilirsiniz.
+          </p>
+        </div>
+      </div>
+
+      <div class="cookie-actions">
+        <button class="btn-settings" (click)="openModal()">Ayarlar</button>
+        <button class="btn-reject"   (click)="rejectAll()">Reddet</button>
+        <button class="btn-accept"   (click)="acceptAll()">Kabul Et</button>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- Settings Modal -->
+@if (showModal()) {
+  <div class="modal-backdrop" (click)="closeModal()" aria-hidden="true"></div>
+
+  <div class="cookie-modal" role="dialog" aria-modal="true" aria-label="Çerez ayarları">
+    <div class="modal-header">
+      <h2>Çerez Ayarları</h2>
+      <button class="modal-close" (click)="closeModal()" aria-label="Kapat">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      @for (cat of categories(); track cat.id) {
+        <div class="cookie-category">
+          <div class="category-info">
+            <h3>{{ cat.name }}</h3>
+            <p>{{ cat.description }}</p>
+          </div>
+          <label class="toggle" [class.disabled]="cat.required">
+            <input
+              type="checkbox"
+              [checked]="cat.enabled"
+              [disabled]="cat.required"
+              (change)="toggleCategory(cat.id)"
+              [attr.aria-label]="cat.name + ' çerezlerini ' + (cat.enabled ? 'devre dışı bırak' : 'etkinleştir')">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      }
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-reject" (click)="rejectAll()">Tümünü Reddet</button>
+      <button class="btn-accept" (click)="saveSettings()">Ayarları Kaydet</button>
+    </div>
+  </div>
+}

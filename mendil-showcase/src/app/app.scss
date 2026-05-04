@@ -1,0 +1,9 @@
+/* App-level styles */
+:host {
+  display: block;
+}
+
+.page-content {
+  min-height: 100vh;
+  padding-top: 72px; /* navbar height */
+}

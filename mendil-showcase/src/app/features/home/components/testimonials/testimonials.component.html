@@ -1,0 +1,87 @@
+<section class="testimonials section-padding" aria-labelledby="testimonials-heading">
+  <div class="container-custom">
+
+    <div class="section-header" appScrollReveal>
+      <span class="section-label">Müşteri Yorumları</span>
+      <h2 id="testimonials-heading" class="section-title">
+        Müşterilerimiz <span class="text-gradient-blue">Ne Diyor?</span>
+      </h2>
+    </div>
+
+    <!-- Slider -->
+    <div
+      class="testimonials-slider"
+      appTouchGesture
+      (swipeLeft)="next()"
+      (swipeRight)="prev()"
+      appScrollReveal>
+
+      <!-- Cards -->
+      <div class="testimonials-track">
+        @for (t of testimonials; track t.id; let i = $index) {
+          <article
+            class="testimonial-card"
+            [class.active]="i === activeIndex()"
+            [class.prev]="i === (activeIndex() - 1 + testimonials.length) % testimonials.length"
+            [class.next]="i === (activeIndex() + 1) % testimonials.length"
+            [attr.aria-hidden]="i !== activeIndex()">
+
+            <!-- Stars -->
+            <div class="stars" aria-label="{{ t.rating }} yıldız">
+              @for (star of stars; track star) {
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                  [class.filled]="star <= t.rating">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              }
+            </div>
+
+            <!-- Comment -->
+            <blockquote class="testimonial-comment">
+              "{{ t.comment }}"
+            </blockquote>
+
+            <!-- Author -->
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">{{ t.avatar }}</div>
+              <div>
+                <strong class="author-name">{{ t.name }}</strong>
+                <span class="author-role">{{ t.role }}</span>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+
+      <!-- Controls -->
+      <div class="slider-controls">
+        <button class="slider-btn" (click)="prev()" aria-label="Önceki yorum">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <!-- Dots -->
+        <div class="slider-dots" role="tablist" aria-label="Yorum navigasyonu">
+          @for (t of testimonials; track t.id; let i = $index) {
+            <button
+              class="dot"
+              [class.active]="i === activeIndex()"
+              (click)="goTo(i)"
+              role="tab"
+              [attr.aria-selected]="i === activeIndex()"
+              [attr.aria-label]="'Yorum ' + (i + 1)">
+            </button>
+          }
+        </div>
+
+        <button class="slider-btn" (click)="next()" aria-label="Sonraki yorum">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>

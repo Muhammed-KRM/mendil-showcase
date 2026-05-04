@@ -1,0 +1,96 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// GLASSMORPHISM
+// ============================================
+
+.glass       { @include glass; }
+.glass-dark  { @include glass-dark; }
+
+// ============================================
+// HOVER EFFECTS
+// ============================================
+
+.hover-lift  { @include hover-lift; }
+.hover-scale { @include hover-scale; }
+
+.hover-glow {
+  position: relative;
+  transition: all $transition-normal;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, $color-primary, $color-secondary);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity $transition-normal;
+    z-index: -1;
+    filter: blur(20px);
+  }
+
+  &:hover::before { opacity: 0.6; }
+}
+
+// ============================================
+// SHADOWS
+// ============================================
+
+.shadow-soft   { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); }
+.shadow-medium { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10); }
+.shadow-hard   { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); }
+.shadow-brand  { box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25); }
+
+// ============================================
+// GRADIENTS
+// ============================================
+
+.gradient-primary   { background: linear-gradient(135deg, #0EA5E9 0%, #3B82F6 100%); }
+.gradient-secondary { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); }
+.gradient-warm      { background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%); }
+.gradient-hero      { background: linear-gradient(135deg, #E8F4F8 0%, #F0F9FF 50%, #D4F1E8 100%); }
+
+// ============================================
+// CARD STYLES
+// ============================================
+
+.card {
+  background: white;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all $transition-normal;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+  }
+}
+
+.card-glass {
+  @include glass;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  transition: all $transition-normal;
+}
+
+// ============================================
+// SKELETON LOADING
+// ============================================
+
+.skeleton {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: $radius-md;
+}
+
+// ============================================
+// BLUR BACKGROUNDS
+// ============================================
+
+.blur-bg      { backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.85); }
+.blur-bg-dark { backdrop-filter: blur(8px); background: rgba(30, 41, 59, 0.85); }

@@ -1,0 +1,119 @@
+.page-header {
+  background: linear-gradient(135deg, #E8F4F8, #F0F9FF);
+  padding: 8rem 0 4rem;
+  text-align: center;
+}
+
+.page-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0.5rem 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.page-desc {
+  color: #64748b;
+  font-size: 1.0625rem;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.section-padding { padding: 5rem 0; }
+@media (min-width: 1024px) { .section-padding { padding: 7rem 0; } }
+
+.bg-light { background: #f8fafc; }
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0.5rem 0 0;
+  letter-spacing: -0.02em;
+}
+
+/* Mission & Vision */
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .mv-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.mv-card {
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid #f1f5f9;
+
+  &.mission { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); }
+  &.vision  { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); }
+
+  h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0.75rem 0 0.875rem;
+  }
+
+  p {
+    color: #475569;
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+.mv-icon { font-size: 2.5rem; }
+
+/* CTA Box */
+.about-cta {
+  background: linear-gradient(135deg, #0EA5E9, #3B82F6);
+}
+
+.cta-box {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: white;
+    margin: 0 0 1rem;
+  }
+
+  p {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.0625rem;
+    margin: 0 0 2rem;
+    line-height: 1.7;
+  }
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: white;
+  color: var(--color-primary);
+  border-radius: 9999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 300ms;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+}

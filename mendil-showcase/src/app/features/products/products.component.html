@@ -1,0 +1,33 @@
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container-custom">
+    <span class="section-label">Ürün Kataloğu</span>
+    <h1 class="page-title" appScrollReveal>Ürünlerimiz</h1>
+    <p class="page-desc" appScrollReveal [srDelay]="0.1">
+      Doğa dostu malzemelerden üretilen, dermatoljik olarak test edilmiş ürünlerimizi keşfedin.
+    </p>
+  </div>
+</section>
+
+<!-- Products Section -->
+<section class="products-section" aria-labelledby="products-heading">
+  <div class="container-custom">
+    <h2 id="products-heading" class="sr-only">Ürün Listesi</h2>
+
+    <!-- Filter -->
+    <app-product-filter
+      [categories]="categories"
+      [activeCategory]="activeCategory()"
+      (categoryChange)="setCategory($event)" />
+
+    <!-- Grid -->
+    <app-product-grid
+      [products]="filteredProducts()"
+      (openDetail)="openModal($event)" />
+  </div>
+</section>
+
+<!-- Product Detail Modal -->
+<app-product-detail-modal
+  [product]="selectedProduct()"
+  (close)="closeModal()" />

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Ayşe Yılmaz",
+    "role": "Anne",
+    "rating": 5,
+    "comment": "Bebeğim için kullandığım en iyi ıslak mendil. Hassas cildine çok uygun, hiç tahriş olmuyor. Kesinlikle tavsiye ederim!",
+    "avatar": "👩",
+    "date": "2026-04-15"
+  },
+  {
+    "id": 2,
+    "name": "Mehmet Demir",
+    "role": "İşletme Sahibi",
+    "rating": 5,
+    "comment": "Ofisimizde kullanıyoruz. Kaliteli ve ekonomik. Çalışanlarımız çok memnun, tekrar sipariş vereceğiz.",
+    "avatar": "👨‍💼",
+    "date": "2026-04-10"
+  },
+  {
+    "id": 3,
+    "name": "Zeynep Kaya",
+    "role": "Öğretmen",
+    "rating": 5,
+    "comment": "Sınıfta her zaman yanımda. Hijyenik ve pratik. Öğrencilerim için güvenle kullanıyorum.",
+    "avatar": "👩‍🏫",
+    "date": "2026-04-05"
+  },
+  {
+    "id": 4,
+    "name": "Can Özdemir",
+    "role": "Sporcu",
+    "rating": 5,
+    "comment": "Spor salonunda kullanmak için ideal. Antibakteriyel özelliği çok iyi, her antrenmanda yanımda.",
+    "avatar": "🏋️",
+    "date": "2026-03-28"
+  },
+  {
+    "id": 5,
+    "name": "Elif Arslan",
+    "role": "Ev Hanımı",
+    "rating": 5,
+    "comment": "Evde her yerde var. Mutfakta, banyoda, oturma odasında. Vazgeçilmezimiz oldu.",
+    "avatar": "👩‍🍳",
+    "date": "2026-03-20"
+  }
+]

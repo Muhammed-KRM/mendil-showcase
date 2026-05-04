@@ -1,0 +1,135 @@
+
+.features-section {
+  background: white;
+}
+
+.section-padding {
+  padding: 5rem 0;
+  @media (min-width: 1024px) { padding: 7rem 0; }
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0.5rem 0 0;
+  letter-spacing: -0.02em;
+}
+
+// ============================================
+// BENTO GRID
+// ============================================
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+  }
+}
+
+.bento-item {
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0.75rem 0 0.5rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    &.bento-large  { grid-column: span 2; grid-row: span 2; }
+    &.bento-medium { grid-column: span 2; }
+    &.bento-small  { grid-column: span 1; }
+  }
+}
+
+// Large item
+.bento-large {
+  h3 { font-size: 1.5rem; color: white; }
+  p  { color: rgba(255, 255, 255, 0.85); font-size: 0.9375rem; }
+}
+
+.bento-content-large {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.bento-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.bento-icon-sm {
+  font-size: 2rem;
+  display: block;
+}
+
+.bento-small-desc {
+  font-size: 0.8rem !important;
+  color: #94a3b8 !important;
+}
+
+.bento-badge-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.bento-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bento-icon-colored {
+  font-size: 2rem;
+  display: block;
+
+  &.blue   { filter: drop-shadow(0 2px 4px rgba(14, 165, 233, 0.3)); }
+  &.red    { filter: drop-shadow(0 2px 4px rgba(239, 68, 68, 0.3)); }
+  &.purple { filter: drop-shadow(0 2px 4px rgba(139, 92, 246, 0.3)); }
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #0EA5E9 0%, #3B82F6 100%);
+}
+
+.bg-blue-50  { background: #EFF6FF; }
+.bg-green-50 { background: #F0FDF4; }
+.text-white  { color: white; }
