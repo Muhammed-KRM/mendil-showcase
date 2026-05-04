@@ -1,8 +1,7 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface Milestone {
   year: string;
@@ -135,6 +134,8 @@ interface Milestone {
   `]
 })
 export class CompanyHistoryComponent implements AfterViewInit, OnDestroy {
+  private platform = inject(PLATFORM_ID);
+
   milestones: Milestone[] = [
     { year: '2010', title: 'Kuruluş',         icon: '🏭', desc: 'İstanbul\'da küçük bir fabrikayla başladık. İlk ürünümüz hassas cilt ıslak mendiliydi.' },
     { year: '2013', title: 'İlk Büyüme',      icon: '📈', desc: 'Üretim kapasitemizi 3 katına çıkardık. Türkiye genelinde dağıtım ağımızı kurduk.' },
@@ -147,6 +148,10 @@ export class CompanyHistoryComponent implements AfterViewInit, OnDestroy {
   private triggers: ScrollTrigger[] = [];
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platform)) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
     const items = document.querySelectorAll('.timeline-item');
     items.forEach((item, i) => {
       const trig = ScrollTrigger.create({

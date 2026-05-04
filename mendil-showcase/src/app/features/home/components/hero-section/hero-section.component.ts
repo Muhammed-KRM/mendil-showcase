@@ -1,4 +1,5 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { gsap } from 'gsap';
 
@@ -10,9 +11,12 @@ import { gsap } from 'gsap';
   styleUrls: ['./hero-section.component.scss']
 })
 export class HeroSectionComponent implements AfterViewInit, OnDestroy {
+  private platform = inject(PLATFORM_ID);
   private tl?: gsap.core.Timeline;
 
   ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platform)) return;
+
     this.tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
     this.tl
